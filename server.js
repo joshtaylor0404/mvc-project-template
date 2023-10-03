@@ -22,8 +22,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 // Add express-session and store as Express.js middleware
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  let message = `Now listening`;
+  let message = 'Now listening';
 
   if (PORT === 3001) {
     message += ` at http://localhost:${PORT}`;
